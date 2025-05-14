@@ -6,15 +6,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t adijaiswal/currencyservice:latest ."
+                        sh "docker build -t uxheri/currencyservice:latest ."
                     }
-                }
-            }
-        }
-        stage('Tag for My Repo') {
-            steps {
-                script {
-                    sh "docker tag adijaiswal/currencyservice:latest uxheri/currencyservice:latest"
                 }
             }
         }
@@ -23,7 +16,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push uxheri/currencyservice:latest "
+                        sh "docker push uxheri/currencyservice:latest"
                     }
                 }
             }
