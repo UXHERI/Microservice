@@ -11,12 +11,19 @@ pipeline {
                 }
             }
         }
+        stage('Tag for My Repo') {
+            steps {
+                script {
+                    sh "docker tag adijaiswal/shippingservice:latest uxheri/shippingservice:latest"
+                }
+            }
+        }
         
         stage('Push Docker Image') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push adijaiswal/shippingservice:latest "
+                        sh "docker push uxheri/shippingservice:latest "
                     }
                 }
             }
