@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push uxheri/adservice:latest "
+                        sh "docker push uxheri/adservice:latest"
                     }
                 }
             }
