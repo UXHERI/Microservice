@@ -6,15 +6,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t adijaiswal/shippingservice:latest ."
+                        sh "docker build -t uxheri/shippingservice:latest ."
                     }
-                }
-            }
-        }
-        stage('Tag for My Repo') {
-            steps {
-                script {
-                    sh "docker tag adijaiswal/shippingservice:latest uxheri/shippingservice:latest"
                 }
             }
         }
@@ -23,7 +16,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push uxheri/shippingservice:latest "
+                        sh "docker push uxheri/shippingservice:latest"
                     }
                 }
             }
