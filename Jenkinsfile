@@ -6,15 +6,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t adijaiswal/frontend:latest ."
+                        sh "docker build -t uxheri/frontend:latest ."
                     }
-                }
-            }
-        }
-        stage('Tag for My Repo') {
-            steps {
-                script {
-                    sh "docker tag adijaiswal/frontend:latest uxheri/frontend:latest"
                 }
             }
         }
