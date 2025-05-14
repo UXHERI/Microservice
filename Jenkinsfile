@@ -6,15 +6,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t adijaiswal/recommendationservice:latest ."
+                        sh "docker build -t uxheri/recommendationservice:latest ."
                     }
-                }
-            }
-        }
-        stage('Tag for My Repo') {
-            steps {
-                script {
-                    sh "docker tag adijaiswal/recommendationservice:latest uxheri/recommendationservice:latest"
                 }
             }
         }
@@ -23,7 +16,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push uxheri/recommendationservice:latest "
+                        sh "docker push uxheri/recommendationservice:latest"
                     }
                 }
             }
